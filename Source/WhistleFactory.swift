@@ -112,12 +112,12 @@ open class WhistleFactory: UIViewController {
     let labelWidth = UIScreen.main.bounds.width
     let defaultHeight = titleLabelHeight
 
-    if let text = titleLabel.text {
+    if let text = titleLabel.text, let font = titleLabel.font {
       let neededDimensions =
         NSString(string: text).boundingRect(
           with: CGSize(width: labelWidth, height: CGFloat.infinity),
           options: NSStringDrawingOptions.usesLineFragmentOrigin,
-          attributes: [NSAttributedString.Key.font: titleLabel.font],
+          attributes: [NSAttributedString.Key.font: font],
           context: nil
         )
       titleLabelHeight = CGFloat(neededDimensions.size.height)
